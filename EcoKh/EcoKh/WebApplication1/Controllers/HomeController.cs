@@ -1,7 +1,7 @@
 ﻿using EcoKh.Business;
 using EcoKh.DAL.Entity;
 using EcoKh.DAL;
-using EcoKh.Models;
+//using EcoKh.Models;
 using EcoKh.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -46,51 +46,15 @@ namespace EcoKh.Controllers
             return Json(vm, JsonRequestBehavior.AllowGet);
         }
 
-
-
-        //public JsonResult GetData()
-        //{
-        //    // создадим список данных
-        //    List<Station> stations = new List<Station>();
-        //    stations.Add(new Station()
-        //    {
-        //        Id = 1,
-        //        PlaceName = "Библиотека имени Ленина",
-        //        GeoLat = 37.610489,
-        //        GeoLong = 55.752308,
-        //        Line = "Сокольническая",
-        //        Traffic = 1.0
-        //    });
-        //    stations.Add(new Station()
-        //    {
-        //        Id = 2,
-        //        PlaceName = "Александровский сад",
-        //        GeoLat = 37.608644,
-        //        GeoLong = 55.75226,
-        //        Line = "Арбатско-Покровская",
-        //        Traffic = 1.2
-        //    });
-        //    stations.Add(new Station()
-        //    {
-        //        Id = 3,
-        //        PlaceName = "Боровицкая",
-        //        GeoLat = 37.609073,
-        //        GeoLong = 55.750509,
-        //        Line = "Серпуховско-Тимирязевская",
-        //        Traffic = 1.0
-        //    });
-
-        //    return Json(stations, JsonRequestBehavior.AllowGet);
-        //}
-
-
-
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            var model = new PZFViewModel
+            {
+                fond = pzfhelp.GetPZFs(),
+            };
+            return View(model);
         }
 
         public ActionResult Contact()
