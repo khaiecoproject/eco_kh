@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Куплеватське.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Куплеватське</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						36.65857765562174,49.066520959603,0 36.65847327218021,49.0685365900196,0 36.65841059287251,49.06974666744357,0 36.65588111390053,49.07132534275547,0 36.65221253834991,49.0712718921756,0 36.64981012680865,49.07042904317778,0 36.64681924394497,49.06917414225074,0 36.64686287662921,49.06836759473065,0 36.64699367051947,49.06594935219938,0 36.64766959071273,49.06474990715431,0 36.64899885536318,49.06275490293957,0 36.65034854256248,49.06035917737345,0 36.65047736709151,49.05794779612838,0 36.6511941509411,49.05594871081941,0 36.65304406842584,49.05557371633934,0 36.65541902802115,49.05681336264365,0 36.6565545378878,49.05843773694672,0 36.65769078108605,49.06006307126802,0 36.65758623967139,49.06207403371958,0 36.65746065468975,49.06448909802339,0 36.65741876011866,49.06529458420099,0 36.6572719996371,49.06811561225564,0 36.65857765562174,49.066520959603,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

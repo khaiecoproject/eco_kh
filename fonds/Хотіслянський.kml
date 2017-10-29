@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Хотіслянський.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Хотіслянський</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						36.86037942644187,50.04721311477493,0 36.8604718054069,50.04584913696197,0 36.86094600244238,50.0450365184762,0 36.8614748669421,50.0434078289186,0 36.86238483885281,50.04232991596831,0 36.86371216065684,50.04125793028624,0 36.86540276091742,50.04100633371488,0 36.86712834510956,50.04021180241687,0 36.86923590844455,50.03996533540968,0 36.87132594842975,50.03999022699366,0 36.87209370433872,50.04108619536297,0 36.87199114698993,50.04271701954838,0 36.87192268798798,50.04380543246161,0 36.8710163840716,50.0448847804932,0 36.87052832062558,50.04597007314228,0 36.86918381536756,50.04731920031773,0 36.86829249253577,50.04812835410058,0 36.86656142811039,50.04892790413953,0 36.86444561074738,50.04917595392261,0 36.8623477020116,50.04915060114215,0 36.86152693967371,50.04886710550058,0 36.86037942644187,50.04721311477493,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

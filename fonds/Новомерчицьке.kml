@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Новомерчицьке.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Новомерчицьке</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						35.64258668204919,49.98499300325883,0 35.6410464456585,49.98390727019211,0 35.64043168378819,49.98284989045823,0 35.64049965767185,49.98196190117712,0 35.64171277794219,49.98125755825403,0 35.64358544187191,49.98101852345682,0 35.64592000610087,49.98079371888617,0 35.64704211263334,49.98127299644435,0 35.64911109942849,49.9814847503725,0 35.65023303056702,49.98196391928251,0 35.65199231527399,49.98320386172525,0 35.65309189900964,49.98397880380616,0 35.65375165620554,49.98444375783951,0 35.65317802666041,49.98590925159588,0 35.65198892086298,49.98631805377792,0 35.65013960534874,49.98626180290516,0 35.64919239899896,49.98652969015004,0 35.64758500618238,49.98633241611698,0 35.64621992575708,49.98599410261899,0 35.64485473227044,49.98565574276885,0 35.64258668204919,49.98499300325883,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

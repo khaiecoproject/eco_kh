@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Кравцівський.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Кравцівський</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						37.38194548107354,49.56054037457018,0 37.38057635926577,49.56182605006057,0 37.37995344715632,49.56309285746942,0 37.37930459920398,49.5641119394031,0 37.3779549025947,49.5656534612318,0 37.37767877235984,49.56666532427268,0 37.37700235189065,49.56743816725501,0 37.37637428083214,49.56871390414801,0 37.37536929096623,49.5700021677701,0 37.37466602743439,49.57052644395805,0 37.37240996077841,49.57058936612847,0 37.37118717244191,49.56961447189153,0 37.37111618968959,49.56886056189804,0 37.37095084299752,49.56710424460704,0 37.37163002093732,49.56633183664417,0 37.37191003209428,49.56532051624998,0 37.37254034163465,49.56405035216179,0 37.373941838656,49.5630106276763,0 37.37421975239057,49.56200351150519,0 37.37452138229961,49.56124641036241,0 37.37556982469552,49.56046918170707,0 37.37696615025421,49.55943402126516,0 37.37841000069374,49.55889608599073,0 37.37990274499938,49.55885439275771,0 37.38109765657515,49.55956755891788,0 37.3815718673733,49.56055081618197,0 37.38162233906327,49.56104813441159,0 37.38194548107354,49.56054037457018,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

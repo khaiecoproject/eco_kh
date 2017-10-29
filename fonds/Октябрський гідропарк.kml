@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Октябрський гідропарк.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Октябрський гідропарк</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						36.17255452230947,49.96481762313691,0 36.1716678036136,49.96541631923379,0 36.1703371148538,49.96660718048269,0 36.168559648942,49.96780734301706,0 36.16722492997685,49.96870850810782,0 36.16544398022102,49.96903224993282,0 36.16232803912845,49.96879334550008,0 36.16143766937535,49.9688087528365,0 36.15965946573028,49.9682540513756,0 36.15966584814962,49.96679200657371,0 36.15967601514528,49.96445777900577,0 36.16012601004712,49.96299436702158,0 36.16146179092391,49.9615180652137,0 36.16234995805429,49.96092210179447,0 36.16412393876668,49.96002123531711,0 36.16633861435901,49.95940327117088,0 36.1676666925982,49.95909060086873,0 36.16943686197374,49.95877035518423,0 36.17164810094238,49.95815314823459,0 36.17385894517634,49.95782549740137,0 36.17606744849184,49.95720885248928,0 36.17739039575124,49.95660795430152,0 36.18048441386969,49.95655414399967,0 36.18181291829863,49.95681992112677,0 36.18491345566881,49.9573439824106,0 36.18668562590356,49.95760225400057,0 36.18625975563573,49.9590570494936,0 36.18494095743883,49.95994962877786,0 36.18228881731357,49.96057606537065,0 36.18008024262374,49.96148555669348,0 36.17786750617648,49.96210523426637,0 36.17520682019619,49.96215150204296,0 36.17432115225434,49.96245762165277,0 36.17122065428818,49.96425787274742,0 36.16944585386769,49.96516318299886,0 36.17255452230947,49.96481762313691,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

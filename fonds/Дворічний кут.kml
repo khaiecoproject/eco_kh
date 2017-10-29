@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Дворічний кут.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Дворічний кут</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						35.97202738403729,50.04419128138284,0 35.97328243693526,50.04478173794978,0 35.97453873944066,50.04537275608099,0 35.97579559601192,50.04576054478389,0 35.97642672136572,50.04656629818763,0 35.97642990382769,50.04738292617519,0 35.9761184836846,50.04820554076,0 35.97549182381127,50.04903415450978,0 35.97360290039487,50.04906365062659,0 35.97202877443512,50.04908821079685,0 35.97013979011722,50.04911765917221,0 35.96856613049838,50.04893735985689,0 35.96762381654425,50.048337994306,0 35.96731139550256,50.04772942433495,0 35.9673150622773,50.04670832071946,0 35.96731871823406,50.04568888711664,0 35.96826340608037,50.0446564866536,0 35.96983272208703,50.04402224667711,0 35.97108688135315,50.04379958246954,0 35.97202738403729,50.04419128138284,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Крюківський.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Крюківський</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						36.22229573571511,49.92405657943482,0 36.22232351536668,49.92489192494119,0 36.22193568334311,49.92629363584929,0 36.22067809053829,49.92771295679658,0 36.2189747313621,49.92886233620822,0 36.21636560595677,49.92890833797506,0 36.21504489279093,49.92837175719425,0 36.21370937472297,49.92727666100261,0 36.21280208463949,49.92589638985028,0 36.21274838350799,49.92394638769694,0 36.21270244873682,49.92227845231381,0 36.21440322614163,49.92113783700314,0 36.21655082400274,49.92054522481425,0 36.21870560418914,49.92022999136153,0 36.22087764150097,49.92046895950331,0 36.22221255884823,49.92155537311847,0 36.22311599554027,49.92265082205824,0 36.22359656612565,49.9240335982652,0 36.22360603982808,49.9243119525937,0 36.22229573571511,49.92405657943482,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Новомлинський.kml</name>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Новомлинський</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						37.74804347840895,49.88421581598908,0 37.74766136431792,49.88342030131437,0 37.74791150649121,49.88276279210879,0 37.74838174962852,49.88197606902592,0 37.74970238199143,49.88119826500591,0 37.75099216883112,49.8809473807812,0 37.75267684709733,49.88122631078433,0 37.7533064867095,49.88136368881361,0 37.75477038732728,49.88177166311185,0 37.75580970389715,49.88217553525095,0 37.75769571278082,49.88258685068752,0 37.75872088896584,49.88325313872231,0 37.75888653896467,49.88417526780592,0 37.75778114039564,49.88508788301675,0 37.7566873053667,49.88573829665566,0 37.75559189049378,49.88638961610366,0 37.7536858853018,49.88624286323842,0 37.75264327981132,49.88583842990673,0 37.75161461622525,49.88516984242022,0 37.75033697748454,49.88515948099374,0 37.74927872864807,49.88501874164012,0 37.74866110209458,49.88461728192868,0 37.74826408428677,49.88408561222397,0 37.74804347840895,49.88421581598908,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>
