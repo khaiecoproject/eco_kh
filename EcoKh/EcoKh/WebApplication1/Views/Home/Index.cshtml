@@ -1,0 +1,160 @@
+﻿@model EcoKh.Models.PZFViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--
+<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+  -->
+<!--
+    <script
+        src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyAsygYAkXzQiG-YBbNSHJ2PDVbMBwhfE14&" type="text/javascript">
+</script>
+
+  -->
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyBSdJuD_ff-F8Ba-zS7QLEAlKfuLCTMZlA" type="text/javascript">
+</script>
+
+
+
+<style>
+    .stationInfo {
+        height: 150px;
+        width: 250px;
+    }
+</style>
+
+<div id="canvas" style="height: 600px; width:600px;"></div>
+
+<!--Устанавливаем секцию scripts, которая затем будет рендериться на мастер-странице -->
+@section scripts {
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        GetMap();
+    });
+
+    // Функция загрузки
+    function GetMap() {
+
+        google.maps.visualRefresh = true;
+        // установка основных координат
+        var Kharkiv = new google.maps.LatLng(49.9098597, 36.2310975);
+
+        // Установка общих параметров отображения карты, как масштаб, центральная точка и тип карты
+        var mapOptions = {
+            zoom: 1,
+            center: Kharkiv,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // Встраиваем гугл-карты в элемент на странице и получаем объект карты
+        var map = new google.maps.Map(document.getElementById("canvas"), mapOptions);
+
+        // Настраиваем красный маркер, который будет использоваться для центральной точки
+        var myLatlng = new google.maps.LatLng(49.9847432, 36.2331238);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Title'
+        });
+
+        /*
+        // KML testing
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+            preserveViewport: true,
+            map: map
+        });
+        */
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'https://raw.githubusercontent.com/khaiecoproject/eco_kh/master/fonds/%D0%86%D0%B2%D0%B0%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D1%96%20%D1%84%D0%BE%D1%80%D1%82%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%86%D1%96%D0%B9%D0%BD%D1%96%20%D1%83%D0%BA%D1%80%D1%96%D0%BF%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F.kml',
+            preserveViewport: false,
+            map: map
+        });
+
+
+        // Берем для маркера иконку с сайта google
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png')
+
+        // Получаем данные
+        $.getJSON('@Url.Action("GetData","Home")', function (data) {
+            // Проходим по всем данным и устанавливаем для них маркеры
+            $.each(data.fond, function (i, item) {
+                var marker = new google.maps.Marker({
+                    'position': new google.maps.LatLng(item.geolon, item.geolat),
+                    'map': map,
+                    'title': item.name_pzf
+                });
+
+                // Берем для этих маркеров синие иконки с сайта google
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+                // Для каждого объекта добавляем доп. информацию, выводимую в отдельном окне
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<div class='stationInfo'><h2>Станция " + item.name_pzf + "</h2><div><h4>Линия метро: "
+                        + item.Line + "</h4></div><div><h4>Пассажиропоток: " + item.Traffic + " млн. человек</h4></div></div>"
+                });
+
+                // обработчик нажатия на маркер объекта
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+
+                // отрисовка kml
+                var ctaLayer = new google.maps.KmlLayer({
+                    url: item.link,
+                    preserveViewport: true,
+                   // suppressInfoWindows: false,
+                    map: map
+                });
+            })
+        });
+    }
+    </script>
+}
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fond.First().name_pzf)
+        </th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.fond.First().znachenie.znachenie_pzf_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.fond)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_pzf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.znachenie.znachenie_pzf_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type.type_pzf_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.territor.type_territor_name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ploschad)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { pid = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
