@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F7D5815-CEB4-4971-A860-BFD320D7C113}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EcoKh.Web</RootNamespace>
+    <AssemblyName>EcoKh.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Shield.Mvc.UI">
+      <HintPath>..\packages\shieldui-aspnet-mvc.1.7.35-Trial\NET45\Shield.Mvc.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubHozController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnalitycsViewModel.cs" />
+    <Compile Include="Models\CommonViewModel.cs" />
+    <Compile Include="Models\PZFViewModel.cs" />
+    <Compile Include="Models\SubHozViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-bootstrap\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-glow\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark-mint\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\dark\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\editor.png" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-bootstrap-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-bootstrap-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-bootstrap-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-bootstrap.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-glow-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-glow-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-glow-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-glow.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-mint-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-mint-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-mint-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-mint.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-dark.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-bootstrap-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-bootstrap-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-bootstrap-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-bootstrap.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-glow-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-glow-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-glow-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-glow.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-mint-gradient-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-mint-gradient.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-mint-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-mint.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light-small.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\loading-light.gif" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\shieldui-sprite.png" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\img\stars.png" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-bootstrap\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-glow\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint-gradient\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light-mint\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\all.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\calendar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\chart.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\colorpicker.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\core.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\editor.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\grid.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\input.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\layout.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\loadingpanel.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\menu.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\pager.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\progressbar.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\rating.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\rtl.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\slider.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\tagcloud.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\timeline.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\treemap.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\treeview.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\upload.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\css\light\window.min.css" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\jquery-1.11.1.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\jszip.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-all.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-barcode.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-calendar.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-chart.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-colorpicker.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-core.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-editor.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-grid.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-input.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-layout.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-loadingpanel.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-menu.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-pager.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-progressbar.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-qrcode.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-rating.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-slider.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-tagcloud.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-timeline.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-treemap.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-treeview.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-upload.min.js" />
+    <Content Include="Content\shieldui\shieldui.1.7.35-Trial\js\shieldui-window.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\SubHoz\AboutSubHoz.cshtml" />
+    <Content Include="Views\SubHoz\EditSubHoz.cshtml" />
+    <Content Include="Views\SubHoz\CreateSubHoz.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EcoKh.Business\EcoKh.Business.csproj">
+      <Project>{057e40ac-9fcc-45b2-8ba9-7a321ba6612a}</Project>
+      <Name>EcoKh.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EcoKh.DAL\EcoKh.DAL.csproj">
+      <Project>{8d429437-1819-43ec-9107-17c0e4c27974}</Project>
+      <Name>EcoKh.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50049</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50049/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,237 @@
+﻿@model EcoKh.DAL.Entity.subject_hozaystva
+
+@{
+    ViewBag.Title = "CreateSubHoz";
+}
+
+<h2>Додати суб'єкт господарювання</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Назва", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name_sub_hoz, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name_sub_hoz, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Код ЄДРПОУ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.kod_edrpou, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.kod_edrpou, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Класифікатор", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.classificator, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.classificator, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("КВЕД", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.kved, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.kved, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Юридичная адреса", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urid_address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urid_address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Фізична адреса", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fiz_address, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.fiz_address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Довгота", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.geolon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.geolon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Широта", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.geolat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.geolat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Наявність відходів", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.nalichie_othodov,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Має відходи", Text="Має відходи" },
+                   new SelectListItem { Value = "Не має відходів", Text="Не має відходів" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.nalichie_othodov, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Необхідність дозволу", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.neobhod_razresh,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Потрібен дозвіл", Text="Потрібен дозвіл" },
+                   new SelectListItem { Value = "Не потрібен дозвіл", Text="Не потрібен дозвіл" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.neobhod_razresh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Номер дозволу", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number_razr, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.number_razr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Дата отримання дозволу", htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_poluch_razr, new { htmlAttributes = new { @class = "form-control", placeholder = "рррр/мм/дд або рррр-мм-дд" } })
+                @Html.ValidationMessageFor(model => model.data_poluch_razr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Дата закінчення строку дії дозволу", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_okon_razr, new { htmlAttributes = new { @class = "form-control", placeholder = "рррр/мм/дд або рррр-мм-дд" } })
+                @Html.ValidationMessageFor(model => model.data_okon_razr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Необхідність декларації", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.neobhod_declar,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Потрібна декларація", Text="Потрібна декларація" },
+                   new SelectListItem { Value = "Непотрібна декларація", Text="Непотрібна декларація" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.neobhod_declar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Наявність декларації", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.nalichie_declar,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Має декларацію", Text="Має декларацію" },
+                   new SelectListItem { Value = "Не має декларації", Text="Не має декларації" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.nalichie_declar, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Номер декларації", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number_dec, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.number_dec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Дата реєстрації декларації", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_reg_dec, new { htmlAttributes = new { @class = "form-control", placeholder = "рррр/мм/дд або рррр-мм-дд" } })
+                @Html.ValidationMessageFor(model => model.data_reg_dec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Необхідність проведення інвентаризації та паспортизації відходів", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.neobhod_interval_passport,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Потрібно", Text="Потрібно" },
+                   new SelectListItem { Value = "Не потрібно", Text="Не потрібно" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.neobhod_interval_passport, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Необхідність реєстрової карти для об'єкта", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.neobhod_reesrt_card_obj,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Потрібна", Text="Потрібна" },
+                   new SelectListItem { Value = "Не потрібна", Text="Не потрібна" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.neobhod_reesrt_card_obj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Наявність реєстрової карти для об'єкта утилізації відходів", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.nalichie_reestr_card_obj,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "Має карту", Text="Має карту" },
+                   new SelectListItem { Value = "Не має карту", Text="Не має карту" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.nalichie_reestr_card_obj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Дата щорічного уточнення реєстрової карти для об'єкта виробництва відходів", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_for_proiz, new { htmlAttributes = new { @class = "form-control", placeholder = "рррр/мм/дд або рррр-мм-дд" } })
+                @Html.ValidationMessageFor(model => model.data_for_proiz, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Дата щорічного уточнення реєстрової карти для об'єкта утилізації відходів", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.data_for_util, new { htmlAttributes = new { @class = "form-control", placeholder = "рррр/мм/дд або рррр-мм-дд" } })
+                @Html.ValidationMessageFor(model => model.data_for_util, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зберегти" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Повернутись", "AboutSubHoz")
+</div>

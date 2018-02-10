@@ -1,0 +1,208 @@
+﻿@model EcoKh.DAL.Entity.prirodo_zaschit_fond
+
+@{
+    ViewBag.Title = "Edit PZF";
+ 
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Редагувати об'єкт природно-заповідного фонду</h2>
+<script src="~/Scripts/jquery-3.3.1.min.js" type="text/javascript">
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+  @*  <style>
+        .modal-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px 15px;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .edit-button {
+            padding: 6px 15px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            display: inline-block;
+            margin-left: 20px;
+        }
+    </style>
+
+    <script>
+        $('body').on('click', '.edit-button',  function () {
+            var modal = $('#selectEdit');
+            var modalContent = modal.find('.modal-content');
+            modal.fadeIn(1000);
+            console.log(modal)
+            $(this).prev().children().each(function () {
+                var value = $(this).attr('value');
+                var elString = '<div class="input-wrapper"><div class="label"></div><input type="text" value="'
+                    + value
+                    + '" /></div>';
+                modalContent.append(elString);
+            });
+            modalContent.append('<div class=" btn btn-sucess">Save</div><div class="btn btn-cancel"></div>');
+        });
+    </script>
+*@
+    <div class="form-horizontal">
+        <hr />   
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+           @*  @Html.LabelFor(model => model.name_pzf, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            @Html.Label("Назва ПЗФ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name_pzf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name_pzf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Адреса", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Площа", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ploschad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ploschad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Рішення", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.reshenie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.reshenie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Тип ПЗФ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.typePzf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.typePzf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Тип території", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              @*@Html.EditorFor(model => model.typeTerritor, new { htmlAttributes = new { @class = "form-control" } })*@ 
+                @Html.DropDownListFor(model => model.typeTerritor,
+                new List<SelectListItem>
+                    {
+                   new SelectListItem { Value = "ключова", Text="ключова" },
+                   new SelectListItem { Value = "буферна", Text="буферна" },
+                   new SelectListItem { Value = "відновлювальна", Text="відновлювальна" },
+                   new SelectListItem { Value = "сполучна", Text="сполучна" }
+                    }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.typeTerritor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Значення ПЗФ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" style="display: flex;">
+                @* @Html.EditorFor(model => model.znacheniePzf, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.znacheniePzf, "", new { @class = "text-danger" })
+
+                @Html.DropDownListFor(model => model.znacheniePzf,
+                new List<SelectListItem>
+                    {
+             //      new SelectListItem { Value = Model.znacheniePzf.ToString(), Text = Model.znacheniePzf.ToString() },
+                   new SelectListItem { Value = "﻿﻿загальнодержавне", Text="загальнодержавне" },
+                   new SelectListItem { Value = "місцеве", Text="місцеве" }
+                    }, new { @class = "form-control" })
+
+  @* <div class="edit-button">Edit</div>*@
+            
+ @* 1. Store selected value in Model.State;
+       when page is rendered after postback,
+       take selected value from Model.State.
+
+    2. Take list of values from Model.States Model.States,
+
+    3. Text for the first 'default' option "- Please select a state -",
+
+    4. A class name to assign to <select> tag
+*@
+
+</div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Довгота", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.geolon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.geolon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Широта", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.geolat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.geolat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Посилання на KML", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зберегти" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    @*
+    <div class="modal-wrapper" id="selectEdit">
+        <div class="overlay"></div>
+        <div class="modal-body">
+            <div class="modal-header"></div>
+            <div class="modal-content"></div>
+        </div>
+    </div>
+    *@
+}
+
+<div>
+    @Html.ActionLink("Повернутись", "About")
+</div>

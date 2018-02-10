@@ -1,0 +1,85 @@
+﻿@model EcoKh.Web.Models.PZFViewModel
+
+@{
+    ViewBag.Title = "Список ПЗФ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-default" style="margin-top: 10px">
+    <div class="panel-heading">
+        <h3>Список ПЗФ</h3>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th class="text-right">Назва</th>
+                @*<th class="text-right">
+    @Html.DisplayNameFor(model => model.fond.First().znachenie.znachenie_pzf_name)
+                </th>*@
+                <th class="text-right">Адреса</th>
+                <th class="text-right">Площа</th>
+                <th class="text-center">Рішення</th>
+                <th class="text-center">Тип ПЗФ</th>
+                <th class="text-center">Тип території</th>
+                <th class="text-center">Значення</th>
+                <th class="text-center">Опції</th>
+            </tr>
+
+
+            @foreach (var item in Model.fond)
+            {
+                <tr>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.name_pzf)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ploschad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reshenie)
+                    </td>         
+                    <td>
+                        @Html.DisplayFor(modelItem => item.typePzf)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.typeTerritor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.znacheniePzf)
+                    </td>
+                    <td class="text-center">
+                       
+                        <div style="position: center; float:right">
+                            @Html.ActionLink("Редагувати", "Edit", new { pzfId = item.Id }, new { @class = "btn btn-default btn-xs" })
+                            </div>
+
+                        <div style="position: center; float:left">
+                            @using (Html.BeginForm("Delete", "Home"))
+                            {
+                                @Html.Hidden("pzfId", item.Id)
+                                <input type="submit"
+                                       class="btn btn-default btn-xs"
+                                       value="Видалити" />
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Додати ПЗФ", "Create", null,
+            new { @class = "btn btn-default" })
+    </div>
+    @*<div class="panel-footer">
+        @Html.ActionLink("Добавить ПЗФ", "Create", new { znachId = Model.znachenieList, type = Model.typePzfList, typeterId = Model.typeTerritorList},
+            new { @class = "btn btn-default" })
+    </div>
+    *@
+</div>

@@ -1,0 +1,225 @@
+﻿@model EcoKh.Web.Models.CommonViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyBSdJuD_ff-F8Ba-zS7QLEAlKfuLCTMZlA" type="text/javascript">
+</script>
+
+<body style="margin: 0;">
+
+
+    <style>
+        html,
+        body,
+        .body-content {
+            height: 100%;
+            padding-bottom: 0;
+        }
+
+
+        .body-content {
+            max-width: 100%;
+            display: flex;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .stationInfo {
+            height: 150px;
+            width: 250px;
+        }
+
+        .panel-body {
+            width: 25%;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        .table {
+            margin: 0 auto;
+        }
+
+
+    </style>
+
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.fond.First().name_pzf)*@
+                    Перелік об'єктів ПЗФ
+                </th>
+            </tr>
+
+            @foreach (var item in Model.fond)
+            {
+                <tr>
+                    <td class="target_gps_wrapper">
+                        @Html.DisplayFor(modelItem => item.name_pzf)
+                        <input type="hidden" value="@Html.DisplayFor(modelItem => item.geolat),@Html.DisplayFor(modelItem => item.geolon)" />
+
+                    </td>
+
+                    @*
+                        <td class="target_gps_wrapper">
+                            @Html.DisplayFor(modelItem => item.type.type_pzf_name)
+                        </td>
+                    *@
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div id="canvas" style="margin: 0 2% 5% 2%; padding: 0 5px 5px 0; height: 100%; float:left; width: 75%"></div>
+
+    <!--Устанавливаем секцию scripts, которая затем будет рендериться на мастер-странице -->
+    @section scripts {
+        <script type="text/javascript">
+
+    $(document).ready(function () {
+        GetMap();
+            });
+
+            var map;
+
+    // Функция загрузки
+    function GetMap() {
+
+        google.maps.visualRefresh = true;
+        // установка основных координат
+            var Kharkiv = new google.maps.LatLng(49.988423, 36.232600);
+
+        // Установка общих параметров отображения карты, как масштаб, центральная точка и тип карты
+        var mapOptions = {
+            zoom: 10,
+            center: Kharkiv,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // Встраиваем гугл-карты в элемент на странице и получаем объект карты
+        map = new google.maps.Map(document.getElementById("canvas"), mapOptions);
+
+     /*   // Настраиваем красный маркер, который будет использоваться для центральной точки
+        var myLatlng = new google.maps.LatLng(49.9847432, 36.2331238);
+*/
+        var marker = new google.maps.Marker({
+           // position: myLatlng,
+            map: map,
+            title: 'Title'
+        });
+       
+        /*
+        // KML testing
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+            preserveViewport: true,
+            map: map
+        });
+   
+        var ctaLayer = new google.maps.KmlLayer({
+            url: 'https://raw.githubusercontent.com/khaiecoproject/eco_kh/master/fonds/%D0%86%D0%B2%D0%B0%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D1%96%20%D1%84%D0%BE%D1%80%D1%82%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%86%D1%96%D0%B9%D0%BD%D1%96%20%D1%83%D0%BA%D1%80%D1%96%D0%BF%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F.kml',
+            preserveViewport: false,
+            map: map
+        });
+
+        */
+
+        // Берем для маркера иконку с сайта google
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png')
+
+        // Получаем данные
+            $.getJSON('@Url.Action("GetData","Home")', function (data) {
+
+                var eckoArr = data.fond.concat(data.subhoz);
+            // Проходим по всем данным и устанавливаем для них маркеры
+                //$.each(eckoArr, function (i, item) {
+                //    var name = item.name_pzf || item.name_sub_hoz;
+                //var marker = new google.maps.Marker({
+                //    'position': new google.maps.LatLng(item.geolon, item.geolat),
+                //    'map': map,
+                //    'title': name
+                //    });
+                console.log('ARRAY', eckoArr);
+                eckoArr.map(function (item) {
+                    var name = item.name_pzf || item.name_sub_hoz;
+                    var address = item.address || item.fiz_address;
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.geolon, item.geolat),
+                        'map': map,
+                        'title': name
+                    });
+
+                    var colorMarker = item.name_pzf ?
+                        'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' :
+                        'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+
+                    console.log(colorMarker);
+
+                // Берем для этих маркеров синие иконки с сайта google
+                    marker.setIcon(colorMarker)
+
+                // Для каждого объекта добавляем доп. информацию, выводимую в отдельном окне
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<div class='stationInfo'><h3>Назва: " + name + "</h3><div><h4>Адреса: " + address
+                });
+
+                // обработчик нажатия на маркер объекта
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+
+                // отрисовка kml
+                var ctaLayer = new google.maps.KmlLayer({
+                    url: item.link,
+                    preserveViewport: true,
+                   // suppressInfoWindows: false,
+                    map: map
+                });
+            })
+        });
+     }
+
+            function clickroute(lat, lng) {
+                var latLng = new google.maps.LatLng(lng, lat);
+            map.panTo(latLng);
+            }
+
+            var td_Collection = document.getElementsByClassName('target_gps_wrapper');
+            for (var i = 0; i < td_Collection.length; i++) {
+                td_Collection[i].onclick = (e) => {
+                    console.log(e.target.childNodes[1].value);
+                    var gps_Arr = e.target.childNodes[1].value.split(',')
+                    console.dir(gps_Arr[0]);
+                    clickroute(+gps_Arr[0], +gps_Arr[1])
+                }
+            }
+
+        </script>
+    }
+
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th>
+                     Перелік суб'єктів господарювання
+                </th>
+            </tr>
+
+            @foreach (var item in Model.subhoz)
+            {
+                <tr>
+                    <td class="target_gps_wrapper">
+                        @Html.DisplayFor(modelItem => item.name_sub_hoz)
+                        <input type="hidden" value="@Html.DisplayFor(modelItem => item.geolat),@Html.DisplayFor(modelItem => item.geolon)" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div style="clear:left"></div>
+</body>

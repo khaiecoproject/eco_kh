@@ -1,0 +1,129 @@
+﻿@model EcoKh.Web.Models.AnalitycsViewModel
+@using Shield.Mvc.UI;
+
+@{
+    ViewBag.Title = "Analityc";
+}
+
+@Styles.Render("~/Content/shieldui/shieldui.1.7.35-Trial/css/light/all.min.css")
+@Scripts.Render("~/Content/shieldui/shieldui.1.7.35-Trial/js/jquery-1.11.1.min.js")
+@Scripts.Render("~/Content/shieldui/shieldui.1.7.35-Trial/js/shieldui-all.min.js")
+
+<div style="height: 100%; float:left; width: 50%">
+   <div>
+       <h4>Всього об'єктів ПЗФ: @Html.Label(Model.PzfCount.ToString())</h4>
+   </div>
+    
+    <div>
+        <h4>ПЗФ загальнодержавного значення:</h4>
+        <ul>
+            @foreach (var item in Model.GlobZnach)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_pzf)
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h4>ПЗФ місцевого значення:</h4>
+        <ul>
+            @foreach (var item in Model.LocalZnach)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_pzf)
+                </li>
+            }
+        </ul>
+    </div>
+    <div style="height:250px; width:300px;">
+
+        @(Html.ShieldChart()
+        .Name("chart")
+        .Theme("Light")
+        .Export(false)
+        .PrimaryHeader(header => header.Text("Співвідношення типів територій"))
+        .ChartLegend(legend => legend.Enabled(true))
+        .SeriesSettings(setting => setting.Pie(pie => pie
+              .EnablePointSelection(true)))
+        .DataSeries(dataSeries => dataSeries.Pie()
+            .CollectionAlias("Кількість")
+            .Data(new object[]
+            {
+                new object[] { "Ключова", Model.KeyTerCount},
+                new object[] { "Буферна", Model.BufTerCount},
+                new { collectionAlias = "Відновлювальна", y = Model.VidTerCount, selected = true },
+                new object[] { "Сполучна", Model.SpolTerCount}
+            }))
+        )
+    </div>
+</div>
+<div style="height: 100%; float:left; width: 50%">
+    <div>
+        <h4>Всього суб'єктів господарювання: @Html.Label(Model.SubCount.ToString())</h4>
+    </div>
+    <div>
+        <h4>Суб'єкти в яких вийшов термін дозволу:</h4>
+        <ul>
+            @foreach (var item in Model.EndRazr)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_sub_hoz)
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h4>Суб'єкти, яким час провести інвентаризацію об'єктів виробництва відходів:</h4>
+        <ul>
+            @foreach (var item in Model.EzegodInvProizv)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_sub_hoz)
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h4>Суб'єкти, яким час провести інветаризацію об'єктів утилізації відходів:</h4>
+        <ul>
+            @foreach (var item in Model.EzegodInvUtil)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_sub_hoz)
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h4>Суб'єкти, яким необхідна декларація, але відсутня:</h4>
+        <ul>
+            @foreach (var item in Model.DecReq)
+            {
+                <li>
+                    @Html.DisplayFor(modelitem => item.name_sub_hoz)
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        @(Html.ShieldChart()
+    .Name("chart2")
+    .Theme("Light")
+    .Export(false)
+    .PrimaryHeader(header => header.Text("Співвідношення суб'єктів господарювання:"))
+    .ChartLegend(legend => legend.Enabled(true))
+    .SeriesSettings(setting => setting.Donut(donut => donut
+          .EnablePointSelection(true)))
+    .Tooltip(tooltip => tooltip.CustomPointText("{point.collectionAlias}: {point.y}"))
+    .DataSeries(dataSeries => dataSeries.Donut()
+        .CollectionAlias("Суб'єкти господарювання")
+        .Data(new object[]
+        {
+            new {collectionAlias = "Мають відходи", y = Model.SOthod, sliced = true},
+            new object[] {"Не мають відходів", Model.BezOthod }
+        }))
+        )
+    </div>
+</div>
+<div style="clear:left"></div>

@@ -1,0 +1,131 @@
+﻿@model EcoKh.Web.Models.SubHozViewModel
+
+@{
+    ViewBag.Title = "AboutSubHoz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-default" style="margin-top: 10px">
+    <div class="panel-heading">
+        <h2>Список суб'єктів господарювання</h2>
+    </div>
+    <div class="panel-body">
+
+        <div style="overflow: auto">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th class="text-right">Назва</th>
+                    <th class="text-right">Код ЄДРПОУ</th>
+                    <th class="text-right">Класифікатор</th>
+                    <th class="text-center">Код КВЕД</th>
+                    <th class="text-center">Юридична адреса</th>
+                    <th class="text-center">Фізична адреса</th>
+                    <th class="text-center">Наявність відходів</th>
+                    <th class="text-center">Необхідність дозволу</th>
+                    <th class="text-center">Номер дозволу</th>
+                    <th class="text-center">Дата отримання дозволу</th>
+                    <th class="text-center">Дата закінчення дозволу</th>
+                    <th class="text-center">Необхідність декларації</th>
+                    <th class="text-center">Наявність декларації</th>
+                    <th class="text-center">Номер декларації</th>
+                    <th class="text-center">Дата реєстрації декларації</th>
+                    <th class="text-center">Необхідність инветаризації</th>
+                    <th class="text-center">Необхідність реєстрової карти об'єкту</th>
+                    <th class="text-center">Наявність реєстрової карти для об'єкта утилізації відходів</th>
+                    <th class="text-center">Дата щорічного уточнення об'єктів виробництва</th>
+                    <th class="text-center">Дата щорічного уточнення об'єктів утилізації</th>
+                    <th class="text-center">Опції</th>
+                </tr>
+
+
+                @foreach (var item in Model.subhoz)
+            {
+                    <tr>
+                        <td class="text-right">
+                            @Html.DisplayFor(modelItem => item.name_sub_hoz)
+                        </td>
+                        <td class="text-right">
+                            @Html.DisplayFor(modelItem => item.kod_edrpou)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.classificator)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.kved)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.urid_address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fiz_address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nalichie_othodov)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.neobhod_razresh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.number_razr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.data_poluch_razr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.data_okon_razr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.neobhod_declar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nalichie_declar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.number_dec)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.data_reg_dec)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.neobhod_interval_passport)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.neobhod_reesrt_card_obj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nalichie_reestr_card_obj)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.data_for_proiz)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.data_for_util)
+                        </td>
+                        <td class="text-center">
+
+                            <div style="position: center; float:right">
+                                @Html.ActionLink("Редагувати", "EditSubHoz", "SubHoz", new { subId = item.Id }, new { @class = "btn btn-default btn-xs" })
+                            </div>
+
+                            <div style="position: center; float:left">
+                                @using (Html.BeginForm("DeleteSubHoz", "SubHoz"))
+                                {
+                                    @Html.Hidden("subId", item.Id)
+                                    <input type="submit"
+                                           class="btn btn-default btn-xs"
+                                           value="Видалити" />
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+            <div class="panel-footer">
+                @Html.ActionLink("Додати Суб'єкт господарювання", "CreateSubHoz", "SubHoz",
+            new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
